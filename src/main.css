@@ -1,13 +1,101 @@
 body {
-  background: #528ce0;
-}
-wrapp {
-  height: 10em;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
+  align-content: center;
   justify-content: center;
+  overflow: auto;
 }
-diamond-element {
-  width: 15%;
+.diamond-element:hover + .background {
+  background-color: #cd5c5c;
+}
+.diamond-element {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: #4b0082;
+  width: 19em;
+  max-width: 30%;
+  height: 19em;
+  clip-path: polygon(50% 0%, 74% 0, 100% 32%, 50% 69%, 0 30%, 26% 0);
+  cursor: pointer;
+}
+.diamond-element__inner {
+  width: auto;
+}
+.diamond-element__inner::after {
+  content: "Go!";
+  color: #fffff0;
+  font-size: 11em;
+  animation: timer 4s linear infinite;
+}
+.background {
   background-color: #f0f8ff;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@-moz-keyframes timer {
+  0% {
+    content: "1";
+  }
+  10% {
+    content: "2";
+  }
+  20% {
+    content: "3";
+  }
+  30% {
+    content: "Go!";
+  }
+}
+@-webkit-keyframes timer {
+  0% {
+    content: "1";
+  }
+  10% {
+    content: "2";
+  }
+  20% {
+    content: "3";
+  }
+  30% {
+    content: "Go!";
+  }
+}
+@-o-keyframes timer {
+  0% {
+    content: "1";
+  }
+  10% {
+    content: "2";
+  }
+  20% {
+    content: "3";
+  }
+  30% {
+    content: "Go!";
+  }
+}
+@keyframes timer {
+  0% {
+    content: "1";
+  }
+  10% {
+    content: "2";
+  }
+  20% {
+    content: "3";
+  }
+  30% {
+    content: "Go!";
+  }
 }

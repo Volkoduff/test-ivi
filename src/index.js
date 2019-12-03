@@ -1,3 +1,3 @@
-import './../dist/index.pug'
+// import './../dist/index.pug'
 import './main.styl'
 

@@ -1,11 +1,12 @@
 const path = require(`path`);
+const autoprefixer = require(`autoprefixer`);
 
 module.exports = {
     mode: `development`,
     entry: `./src/index.js`,
     output: {
         filename: `bundle.js`,
-        path: path.join(__dirname, `dist`),
+        path: path.resolve(__dirname, `dist`),
     },
     devtool: `source-map`,
     module: {
@@ -14,22 +15,24 @@ module.exports = {
                 test: /\.styl$/,
                 use: [
                     {
-                        loader: `style-loader` // creates style nodes from JS strings
+                        loader: `style-loader`
                     },
                     {
-                        loader: `css-loader` // translates CSS into CommonJS
+                        loader: `css-loader`
                     },
                     {
-                        loader: `stylus-loader` // compiles Stylus to CSS
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                autoprefixer()
+                            ],
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: `stylus-loader`
                     }
                 ]
-            },
-            {
-                test: /\.pug$/,
-                loader: 'pug-loader',
-                options: {
-                    pretty: true,
-                },
             },
         ]
     },
